@@ -80,7 +80,7 @@ class Backfiller:
         logging.info(f"{timeseries.external_id} reached configured limit at {arrow.get(latest_end, tzinfo='UTC')}")
 
     def process(self, timeseries, start, end):
-        logging.info(f"Getting historical data {timeseries.external_id} from {start} to {end}")
+        print(f"Getting historical data {timeseries.external_id} from {start} to {end}")
         single_query_lookback = -min(2, self.config.backfill.history_days)
         while end > start and not self.stop.is_set():
 
